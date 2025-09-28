@@ -1,10 +1,15 @@
 import streamlit as st
-from lightgbm import LGBMClassifier
+#from lightgbm import LGBMClassifier
 import joblib
 import pandas as pd
+import os
+import joblib
+
+BASE_DIR = os.path.dirname(__file__)
+MODEL_PATH = os.path.join(BASE_DIR, "rfc.joblib")
 @st.cache_resource
 def load_model():
-    return joblib.load('rfc.joblib')
+    return joblib.load(MODEL_PATH)
 model = load_model()
 
 st.title('score PAR Predict AP')

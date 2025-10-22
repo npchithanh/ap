@@ -4,16 +4,6 @@ scikit-learn
 pandas
 numpy
 streamlit
-# streamlit==1.39.0
-# scikit-learn==1.5.2
-# lightgbm==4.5.0
-# joblib==1.4.2
-# pandas==2.2.3
-# numpy==2.1.1
-
-# import streamlit as st
-# from lightgbm import LGBMClassifier
-# import joblib
-# import pandas as pd
-# import os
-# import joblib
+plotly
+matplotlib
+shap

@@ -23,19 +23,30 @@ explainer = shap.Explainer(model = model, masker=X_train, feature_names=X_train.
 st.title('Acute pancreatitis - PAR index')
 
 dic = {}
-col1, col2, col3 = st.columns(3)
+
+st.subheader('Clinical Index')
+col1, col2 = st.columns(2)
 with col1:
     dic['age'] = st.number_input('Age [19, 95]', min_value=19, max_value = 95)
-    dic['aniongap_max'] = st.number_input('Anion Gap [7, 49]', min_value=7, max_value = 49, step=1)
-    dic['lactate'] = st.number_input('Lactate [0-28 IU/L]', min_value = 0.0, max_value=28.0, step=0.1, value=15.3)
-with col2:  
-    dic['rdw_max'] = rdw = st.number_input('Red Cell Distribution Width [11.8, 35]', min_value=11.8, max_value = 35.0, value=30.0)
-    dic['PAR'] = st.number_input('PAR [0.33, 9.1]', min_value=0.33, max_value = 9.1, step=0.01, value=8.0)
-    dic['pt_max'] = st.number_input('Prothrombin Time [8.8, 150]', min_value=8.8, max_value = 150.0, step=0.1)
-with col3:
-    dic['resp_rate_mean'] = st.number_input('Respiratory Rate [9.6, 38.2]', min_value = 9.6, max_value = 38.2, step=0.1)
+    dic['resp_rate_mean'] = st.number_input('Respiratory Rate [9, 38]', min_value = 9, max_value = 38, step=1)
+with col2:
     dic['mbp_mean'] = st.number_input('Mean Blood Pressure [53, 133 mmHg]', min_value=53, max_value=133, step = 1)
     dic['temperature_mean'] = st.number_input('Temperature [33.6 - 40 0c]', min_value=33.6, max_value=40.0, step=0.1, value=35.1)
+st.subheader('Biochemical Index')
+col1, col2= st.columns(2)
+with col1:
+    dic['aniongap_max'] = st.number_input('Anion Gap [7, 49]', min_value=7, max_value = 49, step=1)
+    dic['lactate'] = st.number_input('Lactate [0-28 IU/L]', min_value = 0.0, max_value=28.0, step=0.1, value=15.3)
+    dic['pt_max'] = st.number_input('Prothrombin Time [8.8, 150]', min_value=8.8, max_value = 150.0, step=0.1)
+with col2:
+    dic['PAR'] = st.number_input('PAR [0.33, 9.1]', min_value=0.33, max_value = 9.1, step=0.01, value=8.0)
+    dic['rdw_max'] = rdw = st.number_input('Red Cell Distribution Width [11.8, 35]', min_value=11.8, max_value = 35.0, value=30.0)
+
+    # Anion gap
+    # Lactate
+    # Prothrombin time
+    # Phosphate/Albumin (PAR) ratio
+    # Red Cell Distribution Width
 
 arr = ['Survived', 'Died']
 
